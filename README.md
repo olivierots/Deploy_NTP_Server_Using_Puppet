@@ -4,6 +4,8 @@ simple ntp puppet code to install, configure and start the ntp services on the m
 ```
 == How does puppet work ==
 ```
+Puppet can define infrastructure as code, manage multiple servers and enforce system configuration. It is used to
+configure, manage, deploy, and orchestrate various applications and services across the whole infrastructure of an organization
 Puppet master ==> responsible for maintaning configs in the form of puppet code. master node can only be Linux
 puppet agents ==> target machines, checks in regularly with the master node every 1800 secs known as pull config (poll update)
 communication between master and slaves is through https & valid signed certificates on port 8140
@@ -21,6 +23,7 @@ puppet parser validate <your .pp file> : check for syntax errors
 puppet agent -tv --noop : smoke test (used on puppet agents)
 puppet agent -tv : retrieve new catalogues from the puppet-master (used on puppet agents)
 puppetserver ca list --all: list signed & unsigned certs from the master node. find agents managed by the master
+puppetserver ca sign --certname <agent_hostname> : sign a cert. from puppet master
 puppet describe <package> or <service> | more : find the attributes to be used in the code
 ```
 == Demo ==
@@ -44,4 +47,7 @@ Info: /Stage[main]/Ntpdemo/Service[ntpd]: Unscheduling refresh on Service[ntpd]
 Notice: Class[Ntpdemo]: Would have triggered 'refresh' from 3 events
 Notice: Stage[main]: Would have triggered 'refresh' from 1 event
 Notice: Applied catalog in 0.20 seconds
+
+[root@puppetmaster ~]# puppetserver ca sign --certname puppetagent01.example.com
+Successfully signed certificate request for puppetagent01.example.com
 ```
