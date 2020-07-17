@@ -2,7 +2,7 @@
 ```
 simple ntp puppet code to install, configure and start the ntp services on the managed agents 
 ```
-== How does puppet work ==
+=== How does puppet work ===
 ```
 Puppet can define infrastructure as code, manage multiple servers and enforce system configuration. It is used to
 configure, manage, deploy, and orchestrate various applications and services across the whole infrastructure of an organization
@@ -16,7 +16,7 @@ puppet language files are called manifests, all the puppet code files with .pp e
 puppet classes: collection of pupept resources bundled together as a single unit, classes are defined first then declared to 
 be used in the puppet code
 ```
-== useful commands ==
+=== useful commands ===
 ```
 facter : find in-built resources that can be used in Puppet codes
 puppet parser validate <your .pp file> : check for syntax errors
@@ -26,7 +26,7 @@ puppetserver ca list --all: list signed & unsigned certs from the master node. f
 puppetserver ca sign --certname <agent_hostname> : sign a cert. from puppet master
 puppet describe <package> or <service> | more : find the attributes to be used in the code
 ```
-== Demo ==
+=== Demo ===
 ```
 [root@puppetmaster ~]# puppetserver ca list --all
 Signed Certificates:
