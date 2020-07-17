@@ -4,10 +4,10 @@ simple ntp puppet code to install, configure and start the ntp services on the m
 ```
 === How does puppet work ===
 ```
-Puppet can define infrastructure as code, manage multiple servers and enforce system configuration. It is used to
+- Puppet can define infrastructure as code, manage multiple servers and enforce system configuration. It is used to
 configure, manage, deploy, and orchestrate various applications and services across the whole infrastructure of an organization
-Puppet master ==> responsible for maintaning configs in the form of puppet code. master node can only be Linux
-puppet agents ==> target machines, checks in regularly with the master node every 1800 secs known as pull config (poll update)
+- Puppet master is responsible for maintaning configs in the form of puppet code. master node can only be Linux
+puppet agents is target machines, checks in regularly with the master node every 1800 secs known as pull config (poll update)
 communication between master and slaves is through https & valid signed certificates on port 8140
 no need to create complex scripts to confugure 1000s of hosts
 site.pp is the first file Agents look for after establishing a communication connection with Puppet Master
